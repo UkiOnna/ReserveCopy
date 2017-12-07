@@ -8,8 +8,10 @@ namespace Storage
 {
     public abstract class Storrage
     {
-        private string _name;
-        private string _model;
+        protected string _name;
+        protected string _model;
+        protected int memory;
+        
 
 
         public string GetName()

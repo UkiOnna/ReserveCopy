@@ -9,8 +9,7 @@ namespace Storage
     public class Flash:Storrage
     {
         private int speedUsb;
-        private int memory;
-        private int haveMemory;
+        public int haveMemory { get; set; }
 
         public override int GetMemory()
         {
@@ -52,12 +51,12 @@ namespace Storage
 
         public override int FreeMemoryInfo()
         {
-            return (memory - haveMemory);
+            return memory - haveMemory;
         }
 
         public override string GetInfo()
         {
-            string info = "Имя - {0}\n Модель - {1}\n Скорость usb - {2} Общая память - {3} Свободная память - {4}", _name, _model, speedUsb, memory;
+            string info = String.Format("Имя - {0}\n Модель - {1}\n Скорость usb - {2}\n Общая память - {3} \nСвободная память - {4}", _name, _model, speedUsb, memory,haveMemory);
             return info;
         }
     }
