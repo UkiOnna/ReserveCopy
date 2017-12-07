@@ -10,7 +10,7 @@ namespace Storage
     {
         private int speedUsb;
         private int memory;
-        string[] data;
+        private int haveMemory;
 
         public override int GetMemory()
         {
@@ -32,9 +32,33 @@ namespace Storage
             this.speedUsb = speedUsb;
         }
 
-        public override void CopyData(string data)
+        public override void CopyData(ref int data)
         {
-            throw new NotImplementedException();
+           // haveMemory += (memory - haveMemory);
+            if (memory - haveMemory >= data)
+            {
+                haveMemory += data;
+                data = 0;
+            }
+
+            else
+            {
+                data -= memory - haveMemory;
+                haveMemory = memory;
+            }
+
+
+        }
+
+        public override int FreeMemoryInfo()
+        {
+            return (memory - haveMemory);
+        }
+
+        public override string GetInfo()
+        {
+            string info = "Имя - {0}\n Модель - {1}\n Скорость usb - {2} Общая память - {3} Свободная память - {4}", _name, _model, speedUsb, memory;
+            return info;
         }
     }
 }

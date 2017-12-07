@@ -34,10 +34,10 @@ namespace Storage
 
         public abstract int GetMemory();
 
-        public abstract void CopyData(string data);
+        public abstract void CopyData(ref int data);
 
-        public abstract void FreeMemoryInfo();
+        public abstract int FreeMemoryInfo();
 
-        public abstract void GetInfo();
+        public abstract string GetInfo();
     }
 }
