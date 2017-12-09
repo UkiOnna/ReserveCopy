@@ -12,7 +12,17 @@ namespace Storage
         public int CountSection { get; set; }
         public int AmountSection { get; set; }
         public int haveMemory { get; set; }
+        
 
+
+        public Hdd(int speed,int countSection, int amountSection)
+        {
+            speedUsb = speed;
+            CountSection = countSection;
+            AmountSection = amountSection;
+            memory = AmountSection * CountSection;
+            haveMemory = 0;
+        }
 
         public override int GetMemory()
         {
@@ -34,21 +44,20 @@ namespace Storage
             this.speedUsb = speedUsb;
         }
 
-        public override void CopyData(ref int data)
+        public override bool CopyData(ref int data)
         {
             // haveMemory += (memory - haveMemory);
-            if (memory - haveMemory >= data)
+            if (memory-haveMemory >= data)
             {
                 haveMemory += data;
                 data = 0;
+                return true;
             }
 
-            else
+            else 
             {
-                data -= memory - haveMemory;
-                haveMemory = memory;
+                return false;
             }
-
 
         }
 
@@ -59,7 +68,7 @@ namespace Storage
 
         public override string GetInfo()
         {
-            string info = String.Format("Имя - {0}\n Модель - {1}\n Скорость usb - {2}\n Общая память - {3} \nСвободная память - {4}", _name, _model, speedUsb, memory, haveMemory);
+            string info = String.Format("Имя - {0}\n Модель - {1}\n Скорость usb - {2}\n Общая память - {3} \nСвободная память - {4}", _name, _model, speedUsb, memory, memory-haveMemory);
             return info;
         }
     }

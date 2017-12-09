@@ -1,0 +1,5 @@
+C:\My Documents\Visual Studio 2017\Projects\reserveCopy\Storage\bin\Debug\Storage.dll
+C:\My Documents\Visual Studio 2017\Projects\reserveCopy\Storage\bin\Debug\Storage.pdb
+C:\My Documents\Visual Studio 2017\Projects\reserveCopy\Storage\obj\Debug\Storage.csprojResolveAssemblyReference.cache
+C:\My Documents\Visual Studio 2017\Projects\reserveCopy\Storage\obj\Debug\Storage.dll
+C:\My Documents\Visual Studio 2017\Projects\reserveCopy\Storage\obj\Debug\Storage.pdb

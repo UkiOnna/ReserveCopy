@@ -36,7 +36,7 @@ namespace Storage
 
         public abstract int GetMemory();
 
-        public abstract void CopyData(ref int data);
+        public abstract bool CopyData(ref int data);
 
         public abstract int FreeMemoryInfo();
 
